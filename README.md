@@ -76,7 +76,7 @@ The gNB installation is based on a modified version of OpenAirInterface (OAI) fo
     sudo ip route add 192.168.70.128/26 via CN_host_IP
    ```
 
-7. **Time synchronization**
+7. **Time synchronization, new terminal**
    ```sh
     sudo systemctl restart chrony
     sudo systemctl enable chrony
@@ -86,6 +86,7 @@ The gNB installation is based on a modified version of OpenAirInterface (OAI) fo
 
 8. **Run gNB**
    ```sh
+   cd ran_build_build
    sudo ./nr-softmodem -O ../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/robort_arm_b210.conf --sa -E
    ```
 
@@ -114,7 +115,7 @@ You need to access the installed oai_cn5g/database file and edit the SIM card ac
     chronyc tracking
    ```
 
-2. **zenoh rmw**
+2. **zenoh rmw, new terminal**
    ```sh
     source /opt/ros/humble/setup.bash
     ros2 daemon stop || true
