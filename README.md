@@ -59,6 +59,7 @@ The gNB installation is based on a modified version of OpenAirInterface (OAI) fo
    ```
 
 5. **Compile gNB**
+Before compile, you can change the save path of the gnb_metrics.csv, that is change "oai_custom/openair2/LAYER2/NR_MAC_gNB/mian.c line 195". Then:
    ```sh
    ./build_oai -I
    ./build_oai -w USRP --gNB --ninja -c
