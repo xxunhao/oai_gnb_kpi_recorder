@@ -86,7 +86,7 @@ The gNB installation is based on a modified version of OpenAirInterface (OAI) fo
 
 8. **Run gNB**
    ```sh
-   cd ran_build_build
+   cd ran_build/build
    sudo ./nr-softmodem -O ../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/robort_arm_b210.conf --sa -E
    ```
 
