@@ -100,13 +100,30 @@ Before compile, you can change the save path of the gnb_metrics.csv, that is cha
    ```
 
 10. **New terminal, run the ROS2 related node**
+   Mujoco:
    ```sh
    export RMW_IMPLEMENTATION=rmw_zenoh_cpp
-   Waitting for your own ros2 node/topic....
+   Waitting...
+   ```
+   ros2 KPI metrics:
+   ```sh
+   export RMW_IMPLEMENTATION=rmw_zenoh_cpp
+   Waitting...
+   ```
+   Dashboard (optional):
+   ```sh
+   export RMW_IMPLEMENTATION=rmw_zenoh_cpp
+   Waitting...
    ```
 
 #### 3. UE
-You need to access the installed oai_cn5g/database file and edit the SIM card according to the configuration in the database. Details can be found at [NR_SA_Tutorial_OAI_COST_UE](oai_custom/doc/NR_SA_Tutorial_COTS_UE.md) document. Alternatively, other LTE/5G SIM card editing software can also be used. After the UE successfully accesses the core network (ping CN_hoost_IP from UE for test), then：
+
+**dependency and robort arm**
+   ```sh
+    waitting dependency.......
+    sudo chmod 666 /dev/ttyACM0
+   ```
+Then, you need to access the installed oai_cn5g/database file and edit the SIM card according to the configuration in the database. Details can be found at [NR_SA_Tutorial_OAI_COST_UE](oai_custom/doc/NR_SA_Tutorial_COTS_UE.md) document. Alternatively, other LTE/5G SIM card editing software can also be used. After the UE successfully accesses the core network (ping CN_hoost_IP from UE for test), then：
 
 1. **Time synchronization**
    ```sh
@@ -124,20 +141,31 @@ You need to access the installed oai_cn5g/database file and edit the SIM card ac
     export ZENOH_CONFIG_OVERRIDE='mode="client";connect/endpoints=["tcp/192.168.18.196:7447"]'
    ```
 
-2. **ROS2 node start, the same terminal*
+3. **ROS2 node start, the same terminal*
    ```sh
    Waitting....
    ```
 
 ## 🛠 API Usage
 
-If you want to change the number of PRBs allocated to the UE to further study the impact of communication resource allocation on latency, you can do so using the following two scripts：
+1：If you want to change the number of PRBs allocated to the UE to further study the impact of communication resource allocation on latency, you can do so using the following two scripts：
    ```sh
    cd oai_custom/
    python gNBControllerUplink.py (only for Uplink)
    python gNBController.py (Downlink is ok) 
    ```
 
+2：We also provide a dashboard interface to facilitate visualization of supervised operations and interactions with small datasets. It can be started using the following command：
+   ```sh
+   cd ros2_kpi_toolkit
+   source install/setup.bash
+   export RMW_IMPLEMENTATION=rmw_zenoh_cpp
+   python3 ./tools/kpi_dashboard.py
+   ```
+And The dashboard interface is as follows:
+![Dashboard](dashboard.png)
+
+3: More API is coming soon.....
 
 ## 📄 License
 
